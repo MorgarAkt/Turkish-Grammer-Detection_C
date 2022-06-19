@@ -124,7 +124,7 @@ void menu(char sentence[], char *(dictionary[500]), int size, int letterCount, i
 // a function that finds the number of vowels in given word
 int totalVowel(char A[], int lenA)
 {
-    char vowel[8] = {'a', 'e', 'i', 'ý', 'o', 'u', 'ü', 'ö'};
+    char vowel[8] = {'a', 'e', 'i', 'Ä±', 'o', 'u', 'Ã¼', 'Ã¶'};
     int counter = 0;
     for (int i = 0; i < lenA; i++)
     {
@@ -152,26 +152,26 @@ void labialHarmony(char *(dictionary[500]), int wordCount)
         char vowel1;
         for (int u = 0; u < len; u++)
         {
-            if (dictionary[i][u] == 'e' || dictionary[i][u] == 'i' || dictionary[i][u] == 'ü' || dictionary[i][u] == 'ö' || dictionary[i][u] == 'a' || dictionary[i][u] == 'o' || dictionary[i][u] == 'u' || dictionary[i][u] == 'ý')
+            if (dictionary[i][u] == 'e' || dictionary[i][u] == 'i' || dictionary[i][u] == 'Ã¼' || dictionary[i][u] == 'Ã¶' || dictionary[i][u] == 'a' || dictionary[i][u] == 'o' || dictionary[i][u] == 'u' || dictionary[i][u] == 'Ä±')
             {
                 vowel1 = dictionary[i][u];
             }
         }
-        if (vowel1 == 'a' || vowel1 == 'e' || vowel1 == 'i' || vowel1 == 'ý')
+        if (vowel1 == 'a' || vowel1 == 'e' || vowel1 == 'i' || vowel1 == 'Ä±')
         {
             for (int j = 0; j < len; j++)
             {
-                if (dictionary[i][j] == 'a' || dictionary[i][j] == 'e' || dictionary[i][j] == 'i' || dictionary[i][j] == 'ý')
+                if (dictionary[i][j] == 'a' || dictionary[i][j] == 'e' || dictionary[i][j] == 'i' || dictionary[i][j] == 'Ä±')
                 {
                     duzUnluCheck++;
                 }
             }
         }
-        else if (vowel1 == 'o' || vowel1 == 'ö' || vowel1 == 'u' || vowel1 == 'ü')
+        else if (vowel1 == 'o' || vowel1 == 'Ã¶' || vowel1 == 'u' || vowel1 == 'Ã¼')
         {
             for (int j = 0; j < len; j++)
             {
-                if (dictionary[i][j] == 'u' || dictionary[i][j] == 'e' || dictionary[i][j] == 'ü' || dictionary[i][j] == 'a')
+                if (dictionary[i][j] == 'u' || dictionary[i][j] == 'e' || dictionary[i][j] == 'Ã¼' || dictionary[i][j] == 'a')
                 {
                     duzUnluCheck++;
                 }
@@ -199,11 +199,11 @@ void palatalHarmony(char *(dictionary[500]), int wordCount)
         for (int j = 0; j < len; j++)
         {
             char c = dictionary[i][j];
-            if (dictionary[i][j] == 'a' || dictionary[i][j] == '?' || dictionary[i][j] == 'u' || dictionary[i][j] == 'o')
+            if (dictionary[i][j] == 'a' || dictionary[i][j] == 'Ä±' || dictionary[i][j] == 'u' || dictionary[i][j] == 'o')
             {
                 counterVowel1++;
             }
-            if (dictionary[i][j] == 'e' || dictionary[i][j] == 'i' || dictionary[i][j] == 'ü' || dictionary[i][j] == 'ö')
+            if (dictionary[i][j] == 'e' || dictionary[i][j] == 'i' || dictionary[i][j] == 'Ã¼' || dictionary[i][j] == 'Ã¶')
             {
                 counterVowel2++;
             }
@@ -225,7 +225,7 @@ void findCount(char sentence[10000], int size, int *letterCount, int *wordCount)
         sentence[p] = tolower(sentence[p]);
     }
 
-    char alphabet[29] = {'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ð', 'h', 'ý', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'þ', 't', 'u', 'ü', 'v', 'y', 'z'};
+    char alphabet[29] = {'a', 'b', 'c', 'Ã§', 'd', 'e', 'f', 'g', 'ÄŸ', 'h', 'Ä±', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'Ã¶', 'p', 'r', 's', 'ÅŸ', 't', 'u', 'Ã¼', 'v', 'y', 'z'};
     for (int i = 0; i < size; i++)
     {
         for (int k = 0; k < 29; k++)
@@ -271,11 +271,11 @@ int isEnd(char sentence[10000])
 int isVowel(char a)
 {
     int returnCount = 0;
-    if (a != '?' && a != 'ö' && a != 'ü')
+    if (a != '?' && a != 'Ã¶' && a != 'Ã¼')
     {
         a = tolower(a); // converting all chars to lowercase for avoid errors
     }
-    char sesli[8] = {'a', 'e', 'ý', 'i', 'o', 'ö', 'u', 'ü'};
+    char sesli[8] = {'a', 'e', 'Ä±', 'i', 'o', 'Ã¶', 'u', 'Ã¼'};
     for (int i = 0; i < 8; i++)
     {
         if (a == sesli[i])
@@ -291,7 +291,7 @@ int isConsonant(char a)
 {
     int returnCount = 0;
     a = tolower(a); // converting all chars to lowercase for avoid errors
-    char consonant[21] = "bcçdfgðhjklmnprsþtvyz";
+    char consonant[21] = "bcÃ§dfgÄŸhjklmnprsÅŸtvyz";
     for (int i = 0; i < 21; i++)
     {
         if (a == consonant[i])
@@ -393,7 +393,7 @@ void strongSoftConsonant(char *(dictionary[500]), int wordCount)
         {
             char a = dictionary[i][j];
             a = tolower(a); // converting all chars to lowercase for avoid errors
-            char StrongConsonant[8] = {'t', 'ç', 'f', 's', 'p', 'k', 'h', 'þ'};
+            char StrongConsonant[8] = {'t', 'Ã§', 'f', 's', 'p', 'k', 'h', 'ÅŸ'};
             for (int j = 0; j < 8; j++)
             {
                 if (a == StrongConsonant[j])
@@ -419,7 +419,7 @@ void strongSoftConsonant(char *(dictionary[500]), int wordCount)
         {
             char a = dictionary[i][j];
             a = tolower(a); // converting all chars to lowercase for avoid errors
-            char SoftConsonant[13] = {'b', 'c', ' d', ' g', ' ð', 'j', 'l', 'm', 'n', 'r', 'v', 'y', 'z'};
+            char SoftConsonant[13] = {'b', 'c', ' d', ' g', ' ÄŸ', 'j', 'l', 'm', 'n', 'r', 'v', 'y', 'z'};
             for (int j = 0; j < 13; j++)
             {
                 if (a == SoftConsonant[j])
