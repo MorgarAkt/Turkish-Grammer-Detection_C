@@ -111,7 +111,9 @@ void menu(char sentence[], char *(dictionary[500]), int size, int letterCount, i
         }
         else if (strcmp(menuChoice, "exit\n") == 0)
         {
-            printf("Goodbye\n");
+            system("cls");
+            printf("\nGoodbye\n");
+            break;
         }
         else
         {
